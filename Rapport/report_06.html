@@ -1,0 +1,108 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY  -->  </STYLE>
+</head>
+<body> 
+<br>
+SQL&gt; <br>
+  1  SELECT *
+<br>
+  2  FROM(SELECT COUNT(employee_id)
+<br>
+  3      FROM T_EMPLOYEE),
+<br>
+  4      (SELECT COUNT(customer_id)
+<br>
+  5      FROM T_CUSTOMER),
+<br>
+  6      (SELECT COUNT(customer_id)
+<br>
+  7      FROM T_CUSTOMER
+<br>
+  8      WHERE pass_id IS NOT NULL
+<br>
+  9      AND ADD_MONTHS(pass_date,12) &gt;= SYSDATE),
+<br>
+ 10      (SELECT COUNT(train_id)
+<br>
+ 11      FROM T_TRAIN),
+<br>
+ 12      (SELECT COUNT(station_id)
+<br>
+ 13      FROM T_STATION),
+<br>
+ 14      (SELECT COUNT(reservation_id)
+<br>
+ 15      FROM T_RESERVATION),
+<br>
+ 16      (SELECT((SELECT COUNT(customer_id)
+<br>
+ 17      from T_CUSTOMER
+<br>
+ 18      WHERE ADD_MONTHS(pass_date,12)&gt;=SYSDATE)/(SELECT COUNT(customer_id)
+<br>
+ 19      FROM t_CUSTOMER)*100) &quot; % &quot;
+<br>
+ 20      FROM (SELECT COUNT(customer_id)
+<br>
+ 21      FROM T_CUSTOMER));
+<br>
+
+<table>
+<tr>
+<th scope="col">
+COUNT(EMPLOYEE_ID)
+</th>
+<th scope="col">
+COUNT(CUSTOMER_ID)
+</th>
+<th scope="col">
+COUNT(CUSTOMER_ID)
+</th>
+<th scope="col">
+COUNT(TRAIN_ID)
+</th>
+<th scope="col">
+COUNT(STATION_ID)
+</th>
+<th scope="col">
+COUNT(RESERVATION_ID)
+</th>
+<th scope="col">
+ % 
+</th>
+</tr>
+<tr>
+<td align="right">
+        14
+</td>
+<td align="right">
+        81
+</td>
+<td align="right">
+        13
+</td>
+<td align="right">
+        42
+</td>
+<td align="right">
+        21
+</td>
+<td align="right">
+        41
+</td>
+<td align="right">
+16,0493827
+</td>
+</tr>
+</table>
+
+<hr>
+
+SQL&gt;
+<br>
+</body>
+</html>

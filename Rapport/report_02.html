@@ -1,0 +1,102 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY  -->  </STYLE>
+</head>
+<body>
+SQL&gt; <br>
+  1  SELECT c.last_name, c.first_name
+<br>
+  2  FROM t_customer c
+<br>
+  3  JOIN t_reservation r
+<br>
+  4  ON c.customer_id = r.buyer_id
+<br>
+  5  JOIN t_ticket t
+<br>
+  6  ON r.reservation_id = t.reservation_id
+<br>
+  7  WHERE c.customer_id != t.customer_id
+<br>
+  8  GROUP BY c.last_name, c.first_name ;
+<br>
+<p>
+<table >
+<tr>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+FIRST_NAME
+</th>
+</tr>
+<tr>
+<td>
+Reynolds
+</td>
+<td>
+Samantha
+</td>
+</tr>
+<tr>
+<td>
+Lang
+</td>
+<td>
+Wayne
+</td>
+</tr>
+<tr>
+<td>
+Herman
+</td>
+<td>
+Tom
+</td>
+</tr>
+<tr>
+<td>
+Novak
+</td>
+<td>
+Jessie
+</td>
+</tr>
+<tr>
+<td>
+Herman
+</td>
+<td>
+Smith
+</td>
+</tr>
+<tr>
+<td>
+Holmes
+</td>
+<td>
+Martin
+</td>
+</tr>
+<tr>
+<td>
+Burton
+</td>
+<td>
+Whitney
+</td>
+</tr>
+</table>
+<p>
+
+7 lignes sélectionnées.<br>
+<br>
+
+
+SQL&gt;
+<br>
+</body>
+</html>

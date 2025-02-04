@@ -1,0 +1,67 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body >
+SQL&gt; <br>
+  1 SELECT r.reservation_id,
+<br>
+  2         r.creation_date,
+<br>
+  3         e.last_name || ' ' || e.first_name AS "Employee Name",
+<br>
+  4         c.last_name || ' ' || c.first_name AS "Customer Name"
+<br>
+  5  FROM t_reservation r
+<br>
+  6  JOIN t_employee e ON r.employee_id = e.employee_id
+<br>
+  7  JOIN t_customer c ON r.buyer_id = c.customer_id
+<br>
+  8  WHERE(r.creation_date) =
+<br>
+  9          (SELECT MIN(creation_date)
+<br>
+ 10  FROM t_reservation);
+<br>
+<p>
+
+<table>
+<tr>
+<th scope="col">
+RESERVATION_ID
+</th>
+<th scope="col">
+CREATION
+</th>
+<th scope="col">
+Employee Name
+</th>
+<th scope="col">
+Customer Name
+</th>
+</tr>
+<tr>
+<td align="right">
+        27
+</td>
+<td>
+03/12/19
+</td>
+<td>
+Saurel André
+</td>
+<td>
+Miller Alex
+</td>
+</tr>
+</table>
+<p>
+
+SQL&gt;
+<br>
+</body>
+</html>

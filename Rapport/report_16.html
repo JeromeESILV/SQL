@@ -1,0 +1,143 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body>
+<br>
+SQL&gt; SELECT UPPER(e.last_name) || ' ' || e.first_name &quot;NOM ET PRENOM &quot;, COUNT(r.reservation_id) &quot; NOMBRE RESERVATIONS &quot;
+<br>
+  2  FROM T_EMPLOYEE e
+<br>
+  3   JOIN T_RESERVATION r
+<br>
+  4  ON e.employee_id = r.employee_id
+<br>
+  5  WHERE manager_id IS NOT NULL
+<br>
+  6  GROUP BY manager_id, r.employee_id, e.last_name, e.first_name
+<br>
+  7  ORDER BY manager_id;
+<br>
+
+<hr>
+
+<table >
+<tr>
+<th scope="col">
+NOM ET PRENOM 
+</th>
+<th scope="col">
+ NOMBRE RESERVATIONS 
+</th>
+</tr>
+<tr>
+<td>
+DESNOYER Jerome
+</td>
+<td align="right">
+         6
+</td>
+</tr>
+<tr>
+<td>
+ROY Thibault
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td>
+AYOT Davina
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+<tr>
+<td>
+SAUREL André
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+<tr>
+<td>
+COUDERT Reda
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td>
+MONRENCY Yoan
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td>
+LANGLOIS Arnaud
+</td>
+<td align="right">
+         3
+</td>
+</tr>
+<tr>
+<td>
+POISSONNIER Maxime
+</td>
+<td align="right">
+         5
+</td>
+</tr>
+<tr>
+<td>
+CHALUT Pierre
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td>
+GOUSSE Kevin
+</td>
+<td align="right">
+         1
+</td>
+</tr>
+<tr>
+<td>
+PATENAUDE Etienne
+</td>
+<td align="right">
+         2
+</td>
+</tr>
+<tr>
+<td>
+FAUBERT Mathieu
+</td>
+<td align="right">
+         4
+</td>
+</tr>
+</table>
+
+<hr>
+
+12 lignes sélectionnées.<br>
+<br>
+
+
+SQL&gt;
+<br>
+</body>
+</html>

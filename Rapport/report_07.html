@@ -1,0 +1,74 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body>
+SQL&gt; SELECT *
+<br>
+  2  FROM(SELECT sd.city || '-' || sa.city AS &quot;Top 5 Journeys&quot;
+<br>
+  3  FROM t_ticket t JOIN t_wagon_train w
+<br>
+  4  ON t.wag_tr_id = w.wag_tr_id
+<br>
+  5  JOIN t_train tr
+<br>
+  6  ON w.train_id  = tr.train_id
+<br>
+  7  JOIN t_station sd
+<br>
+  8  ON sd.station_id = tr.departure_station_id
+<br>
+  9  JOIN t_station sa
+<br>
+ 10  ON sa.station_id = tr.arrival_station_id
+<br>
+ 11  GROUP BY sd.city, sa.city
+<br>
+ 12  ORDER BY COUNT(t.reservation_id)  DESC)
+<br>
+ 13  WHERE ROWNUM &lt; 6;
+<br>
+
+<table>
+<tr>
+<th scope="col">
+Top 5 Journeys
+</th>
+</tr>
+<tr>
+<td>
+Paris-Marseille
+</td>
+</tr>
+<tr>
+<td>
+Bordeaux-Paris
+</td>
+</tr>
+<tr>
+<td>
+Paris-Bordeaux
+</td>
+</tr>
+<tr>
+<td>
+Marseille-Paris
+</td>
+</tr>
+<tr>
+<td>
+Brest-Strasbourg
+</td>
+</tr>
+</table>
+
+<hr>
+
+SQL&gt;
+<br>
+</body>
+</html>

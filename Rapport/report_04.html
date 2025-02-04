@@ -1,0 +1,758 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body>
+<br>
+SQL&gt; SELECT c.last_name||' ' ||c.first_name &quot;Nom et Prénom&quot;,
+<br>
+  2  CASE
+<br>
+  3  WHEN (Months_between('14/10/2020', c.pass_date)&gt;12) THEN 'Perimé !'
+<br>
+  4  WHEN (Months_between('14/10/2020', c.pass_date) is NULL) THEN 'Aucun'
+<br>
+  5  ELSE p.pass_name
+<br>
+  6  END &quot;Type de pass&quot;
+<br>
+  7  FROM t_customer c
+<br>
+  8  LEFT OUTER JOIN t_pass p
+<br>
+  9  ON (p.pass_id = c.pass_id)
+<br>
+ 10  ORDER BY &quot;Nom et Prénom&quot; ;
+<br>
+
+<hr>
+
+<table >
+<tr>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Albert Thomas
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td>
+Alen Doug
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Barnes Bill
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Barnes Katherine
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Barnes Luann
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Barnes Ted
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td>
+Bauer John
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Brooke Morgan
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Burton Albert
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Burton Whitney
+</td>
+<td>
+Pro
+</td>
+</tr>
+<tr>
+<td>
+Clark Paul
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Collins Ben
+</td>
+<td>
+Pro
+</td>
+</tr>
+<tr>
+<td>
+Cooper Clarck
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td>
+Cunningham Charles
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+</table>
+
+<table>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Cunningham Dennis
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Dalton Vance
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Dawn Lane
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Erickson Harvey
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Erickson Leonard
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Erickson Lou
+</td>
+<td>
+Pro
+</td>
+</tr>
+<tr>
+<td>
+Ferguson Angie
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Fields Romain
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Fleming Steve
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Fraser Faun
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Fraser Thomas
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Gordon Rosemary
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Gordon Roy
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Graham Linda
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+</table>
+
+<table>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Hamilton Dory
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Hamilton Melvin
+</td>
+<td>
+Pro
+</td>
+</tr>
+<tr>
+<td>
+Hancock Marcia
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Harris Brandy
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Harris Joe
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Healy Stacy
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Hendrix Charles
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Herman Smith
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Herman Tom
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Hess Katherine
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Holmes Martin
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Jacobs Tarryn
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Landers Philip
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Landers Robert
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+</table>
+
+<hr>
+
+<table>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Lang Wayne
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Larson Arthur
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Lyons Gordons
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Maugard Gregory
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+McDaniels Stacy
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+McDaniels Wayne
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Michaels Timothy
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Miler Victor
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Miller Alex
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Morris Tim
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Nielsen Melvin
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Nielsen Raph
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Novak Craig
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Novak Jessie
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+</table>
+
+<table>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Oswald Georges
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Oswald Ty
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Parker Steve
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Patterson Philip
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Petersen David
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Petersen Melody
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Philips Rich
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td>
+Powel Tom
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Quinn Rosemary
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Reynolds Philip
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Reynolds Samantha
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Rice Joe
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Richards Paul
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Richardson Lauren
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+</table>
+
+<table>
+<th scope="col">
+Nom et Prénom
+</th>
+<th scope="col">
+Type de pass
+</th>
+</tr>
+<tr>
+<td>
+Ross Lou
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Sanders Laurie
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Sattler Jack
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Smith Kevin
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Steinbach Barbra
+</td>
+<td>
+Perimé !
+</td>
+</tr>
+<tr>
+<td>
+Tucker Gerard
+</td>
+<td>
+15-25
+</td>
+</tr>
+<tr>
+<td>
+Warren Paul
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td>
+Wayne Leonard
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+Wayne Williams
+</td>
+<td>
+Aucun
+</td>
+</tr>
+<tr>
+<td>
+White Elliott
+</td>
+<td>
+Pro
+</td>
+</tr>
+<tr>
+<td>
+Williams Megan
+</td>
+<td>
+Aucun
+</td>
+</tr>
+</table>
+
+<hr>
+
+81 lignes sélectionnées.<br>
+<br>
+
+
+SQL&gt;
+<br>
+</body>
+</html>

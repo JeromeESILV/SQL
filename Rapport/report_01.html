@@ -1,0 +1,45 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body>
+
+SQL&gt; <hr>
+  1 SELECT e.first_name | | ' ' | | e.last_name AS &quot;Best Employee&quot;
+<br>
+  2  FROM t_employee e JOIN t_reservation r
+<br>
+  3  ON e.employee_id = r.employee_id
+<br>
+  4  GROUP BY e.first_name, e.last_name
+<br>
+  5  HAVING COUNT(r.employee_id) =
+<br>
+  6       (SELECT MAX(COUNT(reservation_id))
+<br>
+  7  FROM t_reservation
+<br>
+  8  GROUP BY employee_id);
+<br>
+<p>
+
+<table>
+<tr>
+<th scope="col">
+Best Employee
+</th>
+</tr>
+<tr>
+<td>
+Jerome Desnoyer
+</td>
+</tr>
+</table>
+<p>
+
+<br>
+</body>
+</html>

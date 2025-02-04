@@ -1,0 +1,110 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body >
+<br>
+SQL&gt; <br>
+  1  SELECT COUNT(c.customer_id) &quot;REDUCTION SENIOR&quot;, p.pass_name  &quot;NOM ABONNEMENT&quot;
+<br>
+  2  FROM T_CUSTOMER c
+<br>
+  3  JOIN T_PASS p
+<br>
+  4  ON p.pass_id = c.pass_id
+<br>
+  5  JOIN T_RESERVATION r
+<br>
+  6  ON r.buyer_id = c.customer_id
+<br>
+  7  JOIN T_TICKET ti
+<br>
+  8  ON ti.reservation_id = r.reservation_id
+<br>
+  9  JOIN T_WAGON_TRAIN  wagon_tr
+<br>
+ 10  ON wagon_tr.wag_tr_id = ti.wag_tr_id
+<br>
+ 11  JOIN T_TRAIN t
+<br>
+ 12  ON t.train_id = wagon_tr.wag_tr_id
+<br>
+ 13  WHERE p.pass_name LIKE 'Senior'
+<br>
+ 14  AND TO_CHAR(t.departure_time, ('mm/YYYY')) = '10/2020'
+<br>
+ 15  GROUP BY p.pass_name, t.departure_time;
+<br>
+
+<table>
+<tr>
+<th scope="col">
+REDUCTION SENIOR
+</th>
+<th scope="col">
+NOM ABONNEMENT
+</th>
+</tr>
+<tr>
+<td align="right">
+         1
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td align="right">
+         2
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td align="right">
+         1
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td align="right">
+         1
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td align="right">
+         1
+</td>
+<td>
+Senior
+</td>
+</tr>
+<tr>
+<td align="right">
+         1
+</td>
+<td>
+Senior
+</td>
+</tr>
+</table>
+
+<hr>
+
+6 lignes sélectionnées.<br>
+<br>
+
+
+SQL&gt;
+<br>
+</body>
+</html>

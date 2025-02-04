@@ -1,0 +1,23 @@
+body{
+    color: black;
+    background-color: whitesmoke;
+    display: flex;
+    flex-wrap: wrap;
+}
+hr{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+table, td, th{
+    width: fit-content;
+    height: auto;
+    border: solid black;
+    margin: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-collapse: collapse;
+    
+}

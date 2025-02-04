@@ -1,0 +1,84 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="Rstyle.css">
+<meta http-equiv="Content-Type" content="text/html; charset=CP850">
+<meta name="generator" content="SQL*Plus 19.3.0">
+<TITLE>Department Report</TITLE>  <STYLE type='text/css'>  <!-- BODY -->  </STYLE>
+</head>
+<body> 
+<br>
+SQL&gt; <br>
+  1  SELECT t.ticket_id ,c.first_name, c.last_name, sd.city || '(' || tr.departure_time || ' ' || TO_CHAR(tr.departure_time, 'HH24:MI') || ')- ' || sa.city || ' (' || tr.arrival_time || ' ' || TO_CHAR(tr.arrival_time, 'HH24:MI') || ')' AS JOURNEY
+<br>
+  2  FROM t_customer c JOIN t_reservation r
+<br>
+  3  ON c.customer_id = r.reservation_id
+<br>
+  4  JOIN t_ticket t
+<br>
+  5  ON r.reservation_id = t.reservation_id
+<br>
+  6  JOIN t_wagon_train wt
+<br>
+  7  ON t.wag_tr_id = wt.wag_tr_id
+<br>
+  8  JOIN t_train tr
+<br>
+  9  ON wt.train_id = tr.train_id
+<br>
+ 10  JOIN t_station sd
+<br>
+ 11  ON sd.station_id = tr.departure_station_id
+<br>
+ 12  JOIN t_station sa
+<br>
+ 13  ON sa.station_id = tr.arrival_station_id
+<br>
+ 14  NATURAL JOIN DUAL
+<br>
+ 15  WHERE (TO_CHAR(c.birth_date, 'YYYY') &gt; (TO_CHAR(SYSDATE, 'YYYY') - 25)
+<br>
+ 16      AND tr.departure_time BETWEEN '20/10/2020' AND '26/10/2020'
+<br>
+ 17      AND r.price &gt; 50)
+<br>
+ 18  ORDER BY tr.departure_time;
+<br>
+
+<table >
+<tr>
+<th scope="col">
+TICKET_ID
+</th>
+<th scope="col">
+FIRST_NAME
+</th>
+<th scope="col">
+LAST_NAME
+</th>
+<th scope="col">
+JOURNEY
+</th>
+</tr>
+<tr>
+<td align="right">
+         7
+</td>
+<td>
+Paul
+</td>
+<td>
+Clark
+</td>
+<td>
+Brest(24/10/20 16:20)- Strasbourg (24/10/20 20:20)
+</td>
+</tr>
+</table>
+
+<hr>
+
+SQL&gt;
+<br>
+</body>
+</html>
